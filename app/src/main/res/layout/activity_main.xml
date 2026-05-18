@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎧 AirPods Controller"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#1C1C1E"
+            android:gravity="center"
+            android:paddingBottom="4dp"/>
+
+        <!-- Device Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/tvDeviceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Device"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="#1C1C1E"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● Not connected"
+                android:textSize="13sp"
+                android:textColor="#FF3B30"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Battery Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="LEFT" android:textSize="11sp" android:textColor="#8E8E93"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🎧" android:textSize="32sp"/>
+                    <TextView android:id="@+id/tvBattLeft" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:textSize="14sp" android:textStyle="bold" android:textColor="#1C1C1E"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="CASE" android:textSize="11sp" android:textColor="#8E8E93"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📦" android:textSize="32sp"/>
+                    <TextView android:id="@+id/tvBattCase" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:textSize="14sp" android:textStyle="bold" android:textColor="#1C1C1E"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="RIGHT" android:textSize="11sp" android:textColor="#8E8E93"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🎧" android:textSize="32sp"/>
+                    <TextView android:id="@+id/tvBattRight" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:textSize="14sp" android:textStyle="bold" android:textColor="#1C1C1E"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnConnect"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🔵 Connect Earbuds"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="#007AFF"/>
+
+            <Button
+                android:id="@+id/btnRetry"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🔄 Retry Connection"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="#FF9500"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- Noise Control -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="NOISE CONTROL" android:textSize="11sp" android:textColor="#8E8E93"
+            android:textStyle="bold" android:layout_marginTop="20dp" android:layout_marginBottom="6dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="true">
+
+            <Button android:id="@+id/btnOff"
+                android:layout_width="0dp" android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="🔇 Off" android:textColor="#1C1C1E"
+                android:textSize="14sp" android:textStyle="bold"
+                android:backgroundTint="#007AFF" android:textColor="#FFFFFF"/>
+
+            <Button android:id="@+id/btnTransparency"
+                android:layout_width="0dp" android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="👂 Transparency" android:textColor="#1C1C1E"
+                android:textSize="14sp" android:textStyle="bold"
+                android:backgroundTint="#E5E5EA"/>
+
+            <Button android:id="@+id/btnAdaptive"
+                android:layout_width="0dp" android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="⚙️ Adaptive" android:textColor="#1C1C1E"
+                android:textSize="14sp" android:textStyle="bold"
+                android:backgroundTint="#E5E5EA"/>
+
+            <Button android:id="@+id/btnANC"
+                android:layout_width="0dp" android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:text="🔕 Noise Cancel" android:textColor="#1C1C1E"
+                android:textSize="14sp" android:textStyle="bold"
+                android:backgroundTint="#E5E5EA"/>
+        </GridLayout>
+
+        <!-- Volume -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="VOLUME" android:textSize="11sp" android:textColor="#8E8E93"
+            android:textStyle="bold" android:layout_marginTop="16dp" android:layout_marginBottom="6dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#FFFFFF" android:padding="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="🔊 Volume" android:textSize="14sp"/>
+                <TextView android:id="@+id/tvVolume" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="70%" android:textSize="14sp"
+                    android:textColor="#007AFF" android:textStyle="bold"/>
+            </LinearLayout>
+            <SeekBar android:id="@+id/seekVolume" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:max="100" android:progress="70"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Log -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="LIVE LOG" android:textSize="11sp" android:textColor="#8E8E93"
+            android:textStyle="bold" android:layout_marginTop="16dp" android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:background="#1C1C1E"
+            android:textColor="#30D158"
+            android:fontFamily="monospace"
+            android:textSize="11sp"
+            android:padding="12dp"
+            android:text="App started..."/>
+
+    </LinearLayout>
+</ScrollView>
