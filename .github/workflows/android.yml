@@ -24,10 +24,14 @@ jobs:
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" || true
           wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
           unzip -q gradle-8.4-bin.zip
-          gradle-8.4/bin/gradle assembleDebug --no-daemon --stacktrace 2>&1 | tail -50
+          gradle-8.4/bin/gradle assembleDebug --no-daemon
+          echo "=== Finding APK ==="
+          find . -name "*.apk" 2>/dev/null
+          mkdir -p apk-output
+          find . -name "*.apk" -exec cp {} apk-output/ \;
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: AirPodsController-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: apk-output/
