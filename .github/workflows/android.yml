@@ -16,16 +16,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Build APK
-        env:
-          ANDROID_HOME: /usr/local/lib/android/sdk
-          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
         run: |
-          echo "sdk.dir=/usr/local/lib/android/sdk" > local.properties
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          unset ANDROID_SDK_ROOT
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0"
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" || true
           wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
           unzip -q gradle-8.4-bin.zip
-          gradle-8.4/bin/gradle assembleDebug --no-daemon
+          gradle-8.4/bin/gradle assembleDebug --no-daemon --stacktrace 2>&1 | tail -50
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
